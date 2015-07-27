@@ -4,6 +4,18 @@ bk_AEScripts
 My ExtendScript for After Effects.
 These are my personal tools and I develop little by little on the side of my work. 
 
+## Installing
+
+```
+git clone git@github.com:baku89/bk_AEScripts.git [Plugin Folder]
+```
+
+e.g. After Effects CC2014 in OSX
+```
+git clone git@github.com:baku89/bk_AEScripts.git /Applications/Adobe\ After\ Effects\ CC\ 2014/Scripts
+```
+
+
 ## Project settings in JSON
 
 For example:

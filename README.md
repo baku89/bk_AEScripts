@@ -6,6 +6,8 @@ These are my personal tools and I develop little by little on the side of my wor
 
 ## Project settings in JSON
 
+For example:
+
 ### directory structure
 ```md
 [working folder]
@@ -36,6 +38,7 @@ These are my personal tools and I develop little by little on the side of my wor
 }
 ```
 
-**CreateProxy.jsx** adds seleted comps to render queue using `proxy` settings in JSON.
+**CreateProxy.jsx** adds seleted comps to render queue using `proxy` settings in JSON. (e.g. "Test" comps are rendered using  "Best Settings" in render settings, "Lossless with Alpha" in output module, and exported to `[working folder]/proxy/Test`.)
+
 **CreateFinal.jsx** also behaves similar to above but using `final` settings.
 

@@ -1,0 +1,10 @@
+.DS_Store
+
+# specific for ExtendScript
+
+(backup)
+
+**/*.jsx
+!**/bk_*.jsx
+
+!(bk_include)/*.jsx

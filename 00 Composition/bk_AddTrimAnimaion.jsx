@@ -1,0 +1,1 @@
+﻿#include "../(bk_include)/common.jsx"run( function() {	var layers = getSelectedLayers();	for (var i = 0; i < layers.length; i++) {		var layer = layers[i];		if (!(layer instanceof ShapeLayer)) {			continue;		}		// search shape and apply trimming animation		alert( "Shape Layer" )	}});

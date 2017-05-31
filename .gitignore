@@ -6,5 +6,6 @@
 
 **/*.jsx
 !**/bk_*.jsx
+!**/(bk_*).jsx
 
 !(bk_include)/*.jsx

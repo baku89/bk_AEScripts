@@ -2,20 +2,28 @@ bk_AEScripts
 -----
 
 My ExtendScript for After Effects.
-These are my personal tools and I develop little by little on the side of my work. 
 
 ## Installing
+
+### Download zip
+
+Download zip file from 'Clone or Downlaod' button on top-left of this page, then unzip and place them at script folder of AE.
+
+### Use git
+
+(macOS) Open Terminal and type below:
 
 ```
 git clone git@github.com:baku89/bk_AEScripts.git [Plugin Folder]
 ```
 
-e.g. After Effects CC2014 on osx
+e.g. After Effects CC2015 on osx
 ```
-git clone git@github.com:baku89/bk_AEScripts.git /Applications/Adobe\ After\ Effects\ CC\ 2014/Scripts
+git clone git@github.com:baku89/bk_AEScripts.git "/Applications/Adobe After Effects CC 2015/Scripts"
 ```
 
 
+<!--
 ## Project settings in JSON
 
 For example:
@@ -54,3 +62,4 @@ For example:
 
 **CreateFinal.jsx** also behaves similar to above but using `final` settings.
 
+-->

@@ -18,18 +18,28 @@
   },
 	"extends": "eslint:recommended",
 	"globals": {
+
+		// ae
+		"PropertyValueType": true,
+		"PropertyGroup": true,
+		"MaskPropertyGroup": true,
+		"KeyframeEase": true,
+
+		// extend
 		"app": true,
 		"writeLn": true,
 		"clearOutput": true,
 
+		// scriptup
 		"EditText": true,
 		"DropDownList": true,
-
 		"Window": true,
 
+		// my
 		"run": true,
 		"getActiveComp": true,
 		"showDialog": true,
-		"getSelectedLayers": true
+		"getSelectedLayers": true,
+		"getSelectedProperties": true
 	}
 }

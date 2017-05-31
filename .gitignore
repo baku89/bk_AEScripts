@@ -4,8 +4,8 @@
 
 (backup)
 
-**/*.jsx
-!**/bk_*.jsx
-!**/(bk_*).jsx
+**/*
+!**/bk_*.{jsx,jsxbin}
+!**/(bk_*).{jsx,jsxbin}
 
-!(bk_include)/*.jsx
+!(bk_include)/*.{jsx,jsxbin}

@@ -48,7 +48,7 @@ function getSelectedLayers() {
 	if ( layers.length ) {
 		return layers;
 	} else {
-		throw "No layers selected";
+		throw "No layer selected";
 	}
 }
 
@@ -64,7 +64,11 @@ function getSelectedProperties() {
 		});
 	});
 
-	return props;
+	if (props.length) {
+		return props;
+	} else {
+		throw "No property selected"
+	}
 }
 
 

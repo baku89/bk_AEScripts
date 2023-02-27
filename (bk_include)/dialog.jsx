@@ -20,49 +20,69 @@ function Dialog(params, uid) {
 		var ROW_HEIGHT = 26;
 		var UI_BOUNDS = [0, 0, 240, ROW_HEIGHT];
 
-		for ( var key in params ) {
 
-			(function() {
+		// add preset window
+		// var preset = w.add('group');
 
-				var param = params[key];
-				var label = param.label || key;
-				var value = param.value;
+		// preset.alignment = ['left', 'center'];
+		// preset.margins = [0, 0, 0, 0];
 
-				if (uid !== undefined && app.settings.haveSetting(uid, key)) {
-					value = app.settings.getSetting(uid, key);
-				}
+		// var btn = preset.add('button', undefined, 'preset1')
 
-				var g = w.add('group');
-				g.alignment = ['left', 'center'];
+		// btn.titleLayout.margins = [0, 0, 0, 0];
+		// preset.add('button', undefined, '100-20');
+		// preset.add('button', undefined, 'AA');
 
-				// add label
-				g.add('statictext', [0, 0, LABEL_WIDTH, ROW_HEIGHT], label);
+		// preset.add('button', undefined, '+');
 
-				// add ui
-				switch (param.type) {
+		var i = 0;
 
-					case 'string':
-						if (param.dropdown instanceof Array) {
-							controls[key] = addDropDownList(g, UI_BOUNDS, value, param.dropdown);
-						} else {
-							controls[key] = addEditText(g, UI_BOUNDS, value);
-						}
-						break;
+		for (var key in params) {
 
-					case 'number':
-						if (param.min !== undefined && param.max !== undefined) {
-							controls[key] = addSlider(g, UI_BOUNDS, value, param.min, param.max);
-						} else {
-							controls[key] = addEditNumber(g, UI_BOUNDS, value);
-						}
-						break;
+			var param = params[key];
+			var label = param.label || key;
+			var value = param.value;
 
-					case 'boolean':
-						controls[key] = addCheckbox(g, UI_BOUNDS, value);
-						break;
-				}
+			if (uid !== undefined && app.settings.haveSetting(uid, key)) {
+				value = app.settings.getSetting(uid, key);
+			}
 
-			})();
+			var g = w.add('group');
+			g.alignment = ['left', 'center'];
+
+			// add label
+			g.add('statictext', [0, 0, LABEL_WIDTH, ROW_HEIGHT], label);
+
+			// add ui
+			switch (param.type) {
+
+				case 'string':
+					if (param.dropdown instanceof Array) {
+						controls[key] = addDropDownList(g, UI_BOUNDS, value, param.dropdown);
+					} else {
+						controls[key] = addEditText(g, UI_BOUNDS, value);
+					}
+					break;
+
+				case 'number':
+					if (param.min !== undefined && param.max !== undefined) {
+						controls[key] = addSlider(g, UI_BOUNDS, value, param.min, param.max);
+					} else {
+						controls[key] = addEditNumber(g, UI_BOUNDS, value);
+					}
+					break;
+
+				case 'boolean':
+					controls[key] = addCheckbox(g, UI_BOUNDS, value);
+					break;
+			}
+
+			if (i == 0) {
+				controls[key].control.active = true;
+			}
+
+
+			i++;
 		}
 					
 		// add ok / cancel button
@@ -184,7 +204,8 @@ function addEditText(g, bounds, value) {
 	et.text = value;
 
 	return {
-		getValue: function() { return value; }
+		control: et,
+		getValue: function() { return et.text; }
 	};
 }
 
@@ -205,6 +226,7 @@ function addDropDownList(g, bounds, value, dropdown) {
 	ddl.selection = ddl.items[selectedIndex];
 
 	return {
+		control: ddl,
 		getValue: function() { return ddl.selection.text; }
 	};
 }
@@ -221,6 +243,7 @@ function addCheckbox(g, bounds, value) {
 	}
 
 	return {
+		control: cb,
 		getValue: function() { return cb.value; }
 	}
 }
@@ -251,6 +274,7 @@ function addSlider(g, bounds, value, min, max) {
 	});
 
 	return {
+		control: et,
 		getValue: function() { return slider.value; }
 	}
 }
